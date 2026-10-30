@@ -32,7 +32,8 @@ function init() {
   info.style.backgroundColor = "transparent";
   info.style.zIndex = "1";
   info.style.fontFamily = "Impact";
-  info.innerHTML = "Esqueleto por el Sistema solar";
+  info.innerHTML = "Esqueleto por el Sistema solar.";
+
   document.body.appendChild(info);
 
   //Defino cámara
@@ -248,19 +249,44 @@ window.addEventListener("keydown", (event)=>{keysPressed[event.code]=true;});
 window.addEventListener("keyup", (event)=> {keysPressed[event.code]=false;});
 
 function updateSkelet(deltaTime){
-  const movespeed = 0.005;
-  const rotationSpeed = 0.00025;
+  const moveSpeed = 0.009;
+  const rotationSpeed = 0.0025;
 
-  if (keysPressed["KeyA"]){
+  if (keysPressed["KeyA"]) {
     skelet.rotation.y += rotationSpeed * deltaTime;
   }
-  if (keysPressed["KeyD"]){
+  if (keysPressed["KeyD"]) {
     skelet.rotation.y -= rotationSpeed * deltaTime;
   }
-  if (keysPressed["KeyW"]){
-    skelet.translateZ(-movespeed* deltaTime);
+  const previousPosition = skelet.position.clone();
+
+  if (keysPressed["KeyW"]) {
+    skelet.translateZ(-moveSpeed * deltaTime);
   }
-  if (keysPressed["KeyS"]){
-    skelet.translateZ (movespeed * deltaTime);
+
+  if (keysPressed["KeyS"]) {
+    skelet.translateZ(moveSpeed * deltaTime);
   }
+
+  if (checkPlanetCollision(skelet.position)) {
+    skelet.position.copy(previousPosition);
+  }
+}
+
+function checkPlanetCollision(position) {
+  const playerRadius = 0.33;
+  const celestialBodies = [...Planetas, ...Lunas];
+
+  for (const body of celestialBodies) {
+    const bodyPosition = new THREE.Vector3();
+    body.getWorldPosition(bodyPosition);
+
+    const bodyRadius = body.geometry.parameters.radius;
+    const minimumDistance = playerRadius + bodyRadius;
+
+    if (position.distanceTo(bodyPosition) < minimumDistance) {
+      return true;
+    }
+  }
+  return false;
 }
