@@ -1,5 +1,7 @@
 # Esqueleto por el Sistema Solar. 
 
+https://codesandbox.io/p/sandbox/ig-s6-forked-qsry5n
+
 Proyecto interactivo desarrollado con **JavaScript y Three.js** que representa un sistema solar en 3D. Incluye el Sol, ocho planetas, varias lunas y los anillos de Saturno, todos ellos con sus propias texturas y movimientos orbitales. Además, se ha incorporado un personaje controlable por teclado. Atrapado en su nave, Marcelo se da cuenta de que el sistema solar ha encogido! O es él que se ha hecho más grande? Bueno, ya que estamos, nos podemos dar un paseo por el espacio que para eso vinimos.
 
 <img width="631" height="636" alt="image" src="https://github.com/user-attachments/assets/8bd02eac-64a8-4b3e-a5d3-32e65f59545d" />
