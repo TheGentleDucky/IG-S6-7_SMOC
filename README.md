@@ -7,6 +7,13 @@ Proyecto interactivo desarrollado con **JavaScript y Three.js** que representa u
 <img width="631" height="636" alt="image" src="https://github.com/user-attachments/assets/8bd02eac-64a8-4b3e-a5d3-32e65f59545d" />
 
 
+
+https://github.com/user-attachments/assets/d2cb57c0-7c2c-4154-8953-919456bc7ce4
+
+
+
+
+
 ## Para controlar al símpático personaje, usas las siguientes teclas:
 
 | Tecla | Acción |
